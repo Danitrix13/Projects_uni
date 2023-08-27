@@ -10,7 +10,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(BLUE);
 			cprintf("%c", 219);
-			delay(200);
 		}
 		else if (i > 507 && i < 534)
 		{
@@ -31,7 +30,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(BLUE);
 			cprintf("%c", 219);
-			delay(200);
 		}
 		
 		else if (i > 587 && i < 614)
@@ -53,7 +51,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(BLUE);
 			cprintf("%c", 219);
-			delay(200);
 		}
 		else if (i > 667 && i < 694)
 		{
@@ -74,7 +71,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(BLUE);
 			cprintf("%c", 219);
-			delay(200);
 		}
 		else if (i > 747 && i < 774)
 		{
@@ -96,7 +92,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(BLUE);
 			cprintf("%c", 219);
-			delay(200);
 		}
 		else if (i > 827 && i < 835)
 		{
@@ -283,7 +278,6 @@ void main()
     		gotoxy(0, 0);
     		textcolor(BLUE);
     		cprintf("%c", 219);
-			delay(200);
 		}
 		
 		else
@@ -291,7 +285,6 @@ void main()
 			gotoxy(0, 0);
 			textcolor(DARKGRAY);
 			cprintf("%c", 219);
-			delay(200);
 		}
 			
 	}
