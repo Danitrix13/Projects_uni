@@ -5,7 +5,6 @@
 #include <dos.h>
 #include <ctype.h>
 
-
 void borrar()
 {
     system("cls");
@@ -16,7 +15,7 @@ void inicio()
     loading = 0;
     clrscr();
     for (iterable = 0; iterable <2080; iterable++)
-   {
+    {
       if (iterable >= 0)
       {
          textcolor(DARKGRAY);
@@ -24,7 +23,7 @@ void inicio()
       }
     }
     for (iterable = 0; iterable <30; iterable++)
-   {
+    {
         
       gotoxy(25+iterable, 13);
         textcolor(LIGHTBLUE);
@@ -411,7 +410,7 @@ void sueldos(double *sueldo_daniel, double *sueldo_ernesto)
     archivo = fopen("C:\\TC20\\BIN\\saldo.txt","r");
     if (archivo == NULL)
     {
-        printf("error ala abrir el archivo");
+        /*printf("error ala abrir el archivo");*/
         *sueldo_daniel =  sueldo_1;
         *sueldo_ernesto = sueldo_2;
     }
@@ -468,7 +467,7 @@ void actualizar_sueldos(double *sueldo_daniel, double *sueldo_ernesto,char *user
     archivo = fopen("C:\\TC20\\BIN\\saldo.txt","w");
     if (archivo == NULL)
     {
-        printf("error ala abrir el archivo\n");
+        /*printf("error ala abrir el archivo\n");*/
     }
     else if (strcmp(user,"daniel") == 0)
     {
@@ -486,18 +485,46 @@ void actualizar_sueldos(double *sueldo_daniel, double *sueldo_ernesto,char *user
 char *usuario() 
 {   char usuario[10];
     size_t len;
-    int conteo = 3;
+    int conteo = 3,iterable;
     while (conteo > 0) 
     {   
-        printf("Pon tu nombre de usuario: ");
-        fgets(usuario, sizeof(usuario), stdin);
+		borrar();
+		for (iterable = 0; iterable <2059; iterable++)
+		{
+			if (iterable == 485)
+			{
+				textcolor(CYAN);
+				cprintf("Pon tu nombre de usuario: ");
+			}
+			else if (iterable == 487)
+			{
+				textcolor(GREEN);
+				cprintf("                            ");
+			}
+			else if (iterable == 993)
+			{
+				textcolor(CYAN);
+				cprintf("Ingresa tu contrasena: ");
+			}
+			else if (iterable == 998)
+			{
+				textcolor(GREEN);
+				cprintf("                            ");
+			}
+			else
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c",219);
+			}
+		}
+		gotoxy(34,4);
+		fgets(usuario, sizeof(usuario), stdin);
+        /*printf("Pon tu nombre de usuario: ");*/
         len = strlen(usuario);
 		if (strcmp(usuario,"\n") == 0)
 		{
 			borrar();
-			continue;
-			
-			
+			continue;	
 		}
 		else
 		{
@@ -513,22 +540,52 @@ char *usuario()
         	else
         	{
             	conteo--;
-            	printf("Te quedan %d intentos\n", conteo);
+				gotoxy(37,6);
+				textcolor(RED);
+            	cprintf("Te quedan %d intentos\n", conteo);
 				getch();
         	}
-		}
-        
+		}    
     }
     return NULL;
 }
 char *contrasena(char *user)
 {
     char contrasena[20];
-    int conteo = 3;
+    int conteo = 3,iterable;
     size_t len;
     while (conteo > 0)
     {
-        printf("Ingrese su contrasena: ");
+		borrar();
+		for (iterable = 0; iterable <2051; iterable++)
+		{
+			if (iterable == 485)
+			{
+				textcolor(CYAN);
+				cprintf("Pon tu nombre de usuario: ");
+			}
+			else if (iterable == 487)
+			{
+				textcolor(GREEN);
+				cprintf(" %s                         ",user);
+			}
+			else if (iterable == 989)
+			{
+				textcolor(CYAN);
+				cprintf("Ingresa tu contrasena: ");
+			}
+			else if (iterable == 994)
+			{
+				textcolor(GREEN);
+				cprintf("                                ");
+			}
+			else
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c",219);
+			}
+		}
+		gotoxy(35,11);
         fgets(contrasena, sizeof(contrasena), stdin);
         len = strlen(contrasena);
 		if (strcmp(contrasena,"\n") == 0)
@@ -552,7 +609,10 @@ char *contrasena(char *user)
             	else
             	{
                 	conteo--;
-                	printf("Te quedan %d intentos\n", conteo);
+					gotoxy(38,13);
+					textcolor(RED);
+					cprintf("Te quedan %d intentos\n", conteo);
+					getch();
             	}
         	}
 			else
@@ -564,7 +624,9 @@ char *contrasena(char *user)
 				else
 				{
 					conteo--;
-					printf("Te quedan %d intentos\n", conteo);
+					gotoxy(38,13);
+					textcolor(RED);
+					cprintf("Te quedan %d intentos\n", conteo);
 					getch();
 				}
 			}
@@ -574,34 +636,274 @@ char *contrasena(char *user)
 }
 void presentacion()
 {
-	printf("hola presentacion\n");
+	int iterable;
+	borrar();
+	for (iterable = 0; iterable <2080; iterable++)
+	{
+		textcolor(DARKGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 4);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 5);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 6);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 7);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 8);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 9);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 10);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 11);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 12);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 13);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 14);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 15);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	for (iterable = 0; iterable <55; iterable++)
+	{
+	
+		gotoxy(15+iterable, 16);
+		textcolor(LIGHTGRAY);
+		cprintf("%c", 219);
+	}
+	gotoxy(16,5);
+	textcolor(CYAN);
+	cprintf("Universidad: UNI-IES");
+	delay(1000);
+
+	gotoxy(16,7);
+	textcolor(CYAN);
+	cprintf("Carrera: Ingenieria en computacion");
+	delay(1000);
+
+	gotoxy(16,9);
+	textcolor(CYAN);
+	cprintf("Integrantes: Daniel Perez, Ernesto Artola");
+	delay(1000);
+
+	gotoxy(16,11);
+	textcolor(CYAN);
+	cprintf("Carnet: 2023-0798I, 2023-0798I");
+	delay(1000);
+	gotoxy(16,13);
+	textcolor(CYAN);
+	cprintf("Profesor: Heymer");
+	delay(1000);
+
+	gotoxy(16,15);
+	textcolor(CYAN);
+	cprintf("Fecha: 30-08-2023");
+	delay(1000);
+	getch();
 }
 void consultar_saldo(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
+	int iterable;
 	if (strcmp(user,"daniel") == 0)
 	{
-		printf("tu saldo actual es %lf\n",*sueldo_daniel);
+		borrar();
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(27, 5);
+		textcolor(CYAN);
+		cprintf("tu saldo actual es %lf\n",*sueldo_daniel);
+		getch();
 	}
 	else if (strcmp(user,"ernesto") == 0)
 	{
-		printf("tu saldo actual es %lf\n",*sueldo_ernesto);
+		borrar();
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(27, 5);
+		textcolor(CYAN);
+		cprintf("tu saldo actual es %lf",*sueldo_ernesto);
+		getch();
 	}
 	
 }
 void ingresar_saldo_ala_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
 	double ingresar_saldo;
+	int iterable;
 	
 	if (strcmp(user,"daniel") == 0)
 	{
 		while (1)
 		{
 			borrar();
-			printf("Ingresar saldo ala cuenta \n");
+			for (iterable = 0; iterable <2080; iterable++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			
+			gotoxy(16, 5);
+			textcolor(CYAN);
+			cprintf("Ingresar saldo ala cuenta");
+			gotoxy(16, 7);
+			textcolor(CYAN);
+			cprintf("> ");
+			gotoxy(18, 7);
+			
+			
 			scanf("%lf",&ingresar_saldo);
 			if (ingresar_saldo <= 0 )
 			{
-				printf("no puedes ingresar valores negativos");
+				
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("ingrese numeros validos y que sean mayor a 0");
+				getch();
+			}
+			else if (ingresar_saldo > 10000)
+			{
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("no puede ingresar numero mayor a 10000");
 				getch();
 			}
 			else if (ingresar_saldo >= 1 && ingresar_saldo <= 10000)
@@ -616,12 +918,64 @@ void ingresar_saldo_ala_cuenta(double *sueldo_daniel, double *sueldo_ernesto,cha
 	{
 		while (1)
 		{
+			
 			borrar();
-			printf("Ingresar saldo ala cuenta \n");
+			for (iterable = 0; iterable <2080; iterable++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <55; iterable++)
+			{
+			
+				gotoxy(15+iterable, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			
+			gotoxy(16, 5);
+			textcolor(CYAN);
+			cprintf("Ingresar saldo ala cuenta");
+			gotoxy(16, 7);
+			cprintf("> ");
+			textcolor(CYAN);
+			gotoxy(18, 7);
+			
 			scanf("%lf",&ingresar_saldo);
 			if (ingresar_saldo <= 0 )
 			{
-				printf("no puedes ingresar valores negativos");
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("ingrese numeros validos y que sean mayor a 0");
+				getch();
+				
+			}
+			else if (ingresar_saldo > 10000)
+			{
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("no puede ingresar numero mayor a 10000");
 				getch();
 			}
 			else if (ingresar_saldo >= 1 && ingresar_saldo <= 10000)
@@ -638,21 +992,67 @@ void ingresar_saldo_ala_cuenta(double *sueldo_daniel, double *sueldo_ernesto,cha
 void retirar_saldo_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
 	double retirar_saldo;
+	int iterable;
 	while (1)
 	{
 		borrar();
-		printf("Ingresar saldo ala cuenta \n");
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 7);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(16, 5);
+		textcolor(CYAN);
+		cprintf("Ingresar saldo a retirar cuenta");
+		gotoxy(16, 7);
+		cprintf("> ");
+		gotoxy(18, 7);
 		scanf("%lf",&retirar_saldo);
 		if (strcmp(user,"daniel") == 0)
 		{
 			if (retirar_saldo <= 0 )
-		{
-			printf("no puedes ingresar valores negativos");
-			getch();
-		}
+			{
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("ingrese numeros validos y que sean mayor a 0");
+				getch();
+			}
 			else if (retirar_saldo > *sueldo_daniel)
 			{
-				printf("No puede cuenta con el saldo suficiente para realizar la transaccion %lf",*sueldo_daniel);
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
+				gotoxy(24, 11);
+				textcolor(RED);
+				cprintf("saldo actual :%lf",*sueldo_daniel);
 				getch();
 			}
 			else if (retirar_saldo >= 1 && retirar_saldo <= 10000)
@@ -666,12 +1066,19 @@ void retirar_saldo_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *us
 		{
 			if (retirar_saldo <= 0 )
 			{
-				printf("no puedes ingresar valores negativos");
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("ingrese numeros validos y que sean mayor a 0");
 				getch();
 			}
 			else if (retirar_saldo > *sueldo_ernesto)
 			{
-				printf("No puede cuenta con el saldo suficiente para realizar la transaccion %lf",*sueldo_ernesto);
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
+				gotoxy(24, 11);
+				textcolor(RED);
+				cprintf("saldo actual :%lf",*sueldo_ernesto);
 				getch();
 			}
 			else if (retirar_saldo >= 1 && retirar_saldo <= 10000)
@@ -683,33 +1090,84 @@ void retirar_saldo_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *us
 		}	
 	}
 }
+
+
 void recarga_saldo(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
 	double retirar_saldo;
+	int iterables;
 	if (strcmp(user,"daniel") == 0)
 	{
 		while (1)
 		{
 			borrar();
-			printf("Ingresa la cantidad de saldo a recargar\n");
+			for (iterables = 0; iterables <2080; iterables++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			gotoxy(16, 5);
+			textcolor(CYAN);
+			cprintf("Ingresa la cantidad de saldo a recargar");
+			gotoxy(16, 7);
+			textcolor(CYAN);
 			printf("> ");
+			gotoxy(18, 7);
+			
 			scanf("%lf",&retirar_saldo);
-			if (retirar_saldo < 0)
+			if (retirar_saldo <= 0 )
 			{
-				printf("ingrese un valor positivo");
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("ingrese numeros validos y que sean mayor a 0");
 				getch();
 			}
-			else if (retirar_saldo > *sueldo_daniel) 
+			else if (retirar_saldo > *sueldo_daniel)
 			{
-				printf("ingreso un valor mayor a su saldo");
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
+				gotoxy(24, 11);
+				textcolor(RED);
+				cprintf("saldo actual :%lf",*sueldo_daniel);
 				getch();
 			}
-			else
+			else if (retirar_saldo >= 1 && retirar_saldo <= 10000)
 			{
 				*sueldo_daniel = *sueldo_daniel - retirar_saldo;
-				actualizar_sueldos(sueldo_daniel, sueldo_ernesto,user);
+				actualizar_sueldos(sueldo_daniel,sueldo_ernesto,user);
 				break;
 			}
+				
+			
 		}
 		
 	}
@@ -718,20 +1176,66 @@ void recarga_saldo(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 		while (1)
 		{
 			borrar();
-			printf("Ingresa la cantidad de saldo a recargar\n");
-			printf("> ");
-			scanf("%lf",&retirar_saldo);
-			if (retirar_saldo < 0)
+			for (iterables = 0; iterables <2080; iterables++)
 			{
-				printf("ingrese un valor positivo");
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			gotoxy(16, 5);
+			textcolor(CYAN);
+			cprintf("Ingresa la cantidad de saldo a recargar");
+			gotoxy(16, 7);
+			textcolor(CYAN);
+			printf("> ");
+			gotoxy(18, 7);
+			
+			scanf("%lf",&retirar_saldo);
+			if (retirar_saldo <= 0)
+			{
+				gotoxy(16, 11);
+				textcolor(RED);
+				cprintf("ingrese un numero valido y que sea mayor a 0");
 				getch();
 			}
 			else if (retirar_saldo > *sueldo_ernesto) 
 			{
-				printf("ingreso un valor mayor a su saldo");
+				gotoxy(20, 11);
+				textcolor(RED);
+				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
+				gotoxy(24, 11);
+				textcolor(RED);
+				cprintf("saldo actual :%lf",*sueldo_ernesto);
 				getch();
 			}
-			else
+			else if (retirar_saldo > 0 && retirar_saldo <= 10000)
 			{
 				*sueldo_ernesto = *sueldo_ernesto - retirar_saldo;
 				actualizar_sueldos(sueldo_daniel, sueldo_ernesto,user);
@@ -744,15 +1248,111 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
 	char operador[9],telefono[9],iterable;
 	size_t len;
+	int iterables;
 	if (strcmp(user,"daniel") == 0)
 	{
 		while (1)
 		{
 			borrar();
-			printf("elige tu operador\n");
-			printf("1. Tigo\n");
-			printf("2. Claro\n");
-			printf("> ");
+			for (iterables = 0; iterables <2080; iterables++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 8);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 9);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 10);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 11);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 12);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 13);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+	
+			gotoxy(16,5);
+			textcolor(CYAN);
+			cprintf("Elige tu operador");
+
+			gotoxy(16,7);
+			textcolor(CYAN);
+			cprintf("1. Tigo");
+
+			gotoxy(16,9);
+			textcolor(CYAN);
+			cprintf("2. Claro");
+
+
+			gotoxy(16,11);
+			textcolor(CYAN);
+			cprintf("Ingrese un el nombre del operador que uses");
+
+			gotoxy(16,13);
+			textcolor(CYAN);
+			cprintf("> ");
+			gotoxy(18,13);
+			
+		
 			fgets(operador,sizeof(operador),stdin);
 			len = strlen(operador);
 			if (len > 0 && operador[len - 1] == '\n')
@@ -765,11 +1365,50 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 			}
 			if (strcmp(operador,"TIGO") == 0)
 			{
-				borrar();
+				
 				while (1)
 				{
-					printf("Ingrese su numero telefonico\n");
+					borrar();
+					for (iterables = 0; iterables <2080; iterables++)
+					{
+						textcolor(DARKGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 4);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 5);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 6);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 7);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					gotoxy(16, 5);
+					textcolor(CYAN);
+					cprintf("Ingrese su numero telefonico");
+					gotoxy(16, 7);
+					textcolor(CYAN);
 					printf("> ");
+					gotoxy(18, 7);
 					fgets(telefono,sizeof(telefono),stdin);
 					len = strlen(telefono);
 					if (len > 0 && telefono[len - 1] == '\n')
@@ -793,8 +1432,47 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 				while (1)
 				{
 					borrar();
-					printf("Ingrese su numero telefonico\n");
+					for (iterables = 0; iterables <2080; iterables++)
+					{
+						textcolor(DARKGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 4);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 5);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 6);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 7);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					gotoxy(16, 5);
+					textcolor(CYAN);
+					cprintf("Ingrese su numero telefonico");
+					gotoxy(16, 7);
+					textcolor(CYAN);
 					printf("> ");
+					gotoxy(18, 7);
+
 					fgets(telefono,sizeof(telefono),stdin);
 					len = strlen(telefono);
 					if (len > 0 && telefono[len - 1] == '\n')
@@ -826,10 +1504,103 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 		while (1)
 		{
 			borrar();
-			printf("elige tu operador\n");
-			printf("1. Tigo\n");
-			printf("2. Claro\n");
-			printf("> ");
+			for (iterables = 0; iterables <2080; iterables++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 4);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 5);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 6);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 7);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 8);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 9);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 10);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 11);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 12);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterables = 0; iterables <55; iterables++)
+			{
+			
+				gotoxy(15+iterables, 13);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+	
+			gotoxy(16,5);
+			textcolor(CYAN);
+			cprintf("Elige tu operador");
+
+			gotoxy(16,7);
+			textcolor(CYAN);
+			cprintf("1. Tigo");
+
+			gotoxy(16,9);
+			textcolor(CYAN);
+			cprintf("2. Claro");
+
+
+			gotoxy(16,11);
+			textcolor(CYAN);
+			cprintf("Ingrese un el nombre del operador que uses");
+
+			gotoxy(16,13);
+			textcolor(CYAN);
+			cprintf("> ");
+			gotoxy(18,13);
 			fgets(operador,sizeof(operador),stdin);
 			len = strlen(operador);
 			if (len > 0 && operador[len - 1] == '\n')
@@ -845,8 +1616,46 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 				while (1)
 				{
 					borrar();
-					printf("Ingrese su numero telefonico\n");
+					for (iterables = 0; iterables <2080; iterables++)
+					{
+						textcolor(DARKGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 4);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 5);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 6);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 7);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					gotoxy(16, 5);
+					textcolor(CYAN);
+					cprintf("Ingrese su numero telefonico");
+					gotoxy(16, 7);
+					textcolor(CYAN);
 					printf("> ");
+					gotoxy(18, 7);
 					fgets(telefono,sizeof(telefono),stdin);
 					len = strlen(telefono);
 					if (len > 0 && telefono[len - 1] == '\n')
@@ -870,8 +1679,46 @@ void recarga(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 				while (1)
 				{
 					borrar();
-					printf("Ingrese su numero telefonico\n");
+					for (iterables = 0; iterables <2080; iterables++)
+					{
+						textcolor(DARKGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 4);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 5);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 6);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					for (iterables = 0; iterables <55; iterables++)
+					{
+					
+						gotoxy(15+iterables, 7);
+						textcolor(LIGHTGRAY);
+						cprintf("%c", 219);
+					}
+					gotoxy(16, 5);
+					textcolor(CYAN);
+					cprintf("Ingrese su numero telefonico");
+					gotoxy(16, 7);
+					textcolor(CYAN);
 					printf("> ");
+					gotoxy(18, 7);
 					fgets(telefono,sizeof(telefono),stdin);
 					len = strlen(telefono);
 					if (len > 0 && telefono[len - 1] == '\n')
@@ -901,6 +1748,7 @@ void menu_principal(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 {
 	char opcion[2] = "0",opciones[2] = "0";
 	size_t len;
+	int iterable;
 	borrar();
 	/*if (strcmp(user, "daniel") == 0)
 	{
@@ -912,12 +1760,119 @@ void menu_principal(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 	while (1)
 	{
 		borrar();
-		printf("1. presentacion\n");
-		printf("2. Cajero ATM-UNI\n");
-		printf("3. Recarga\n");
-		printf("4. salir\n");
-		printf("Ingrese un numero segun la accion que desea realizar\n");
-		printf("> ");
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 7);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 8);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 9);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 10);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 11);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 12);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 13);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 14);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 15);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(16,5);
+		textcolor(CYAN);
+		cprintf("1. presentacion");
+
+		gotoxy(16,7);
+		textcolor(CYAN);
+		cprintf("2. Cajero ATM-UNI");
+
+		gotoxy(16,9);
+		textcolor(CYAN);
+		cprintf("3. Recarga");
+
+		gotoxy(16,11);
+		textcolor(CYAN);
+		cprintf("4. salir");
+
+		gotoxy(16,13);
+		textcolor(CYAN);
+		cprintf("Ingrese un numero segun la accion que desea realizar");
+
+		gotoxy(16,15);
+		textcolor(CYAN);
+		cprintf("> ");
+
 		fgets(opcion,sizeof(opcion),stdin);
 		len = strlen(opcion);
 		if (len > 0 && opcion[len - 1] == '\n')
@@ -943,12 +1898,106 @@ void menu_principal(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 		case '2':	
 			while (1)
 			{
+				
 				borrar();
-				printf("1. ingresar saldo ala cuenta\n");
-				printf("2. retirar saldo cuenta\n");
-				printf("3. consultar saldo\n");
-				printf("Ingrese un numero segun la accion que desea realizar\n");
-				printf("> ");
+				for (iterable = 0; iterable <2080; iterable++)
+				{
+					textcolor(DARKGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 4);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 5);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 6);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 7);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 8);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 9);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 10);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 11);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 12);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+				for (iterable = 0; iterable <55; iterable++)
+				{
+				
+					gotoxy(15+iterable, 13);
+					textcolor(LIGHTGRAY);
+					cprintf("%c", 219);
+				}
+		
+				gotoxy(16,5);
+				textcolor(CYAN);
+				cprintf("1. ingresar saldo ala cuenta");
+
+				gotoxy(16,7);
+				textcolor(CYAN);
+				cprintf("2. retirar saldo cuenta");
+
+				gotoxy(16,9);
+				textcolor(CYAN);
+				cprintf("3. consultar saldo");
+
+
+				gotoxy(16,11);
+				textcolor(CYAN);
+				cprintf("Ingrese un numero segun la accion que desea realizar");
+
+				gotoxy(16,13);
+				textcolor(CYAN);
+				cprintf("> ");
+				gotoxy(18,13);
+				
 				fgets(opciones,sizeof(opciones),stdin);
 				len = strlen(opciones);
 				if (len > 0 && opciones[len - 1] == '\n')
@@ -983,7 +2032,7 @@ void menu_principal(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 	}
 }
 
-preguntar_al_usuario(double *sueldo_daniel,double *sueldo_ernesto,char *user)
+void preguntar_al_usuario(double *sueldo_daniel,double *sueldo_ernesto,char *user)
 {
 	char preguntar[10];
 	int iterable;
@@ -991,10 +2040,83 @@ preguntar_al_usuario(double *sueldo_daniel,double *sueldo_ernesto,char *user)
 	while (1)
 	{
 		borrar();
-		printf("Quieres continuar usando el mismo usuario\n");
-		printf("1. si\n");
-		printf("2. no\n");
-		printf("> ");
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 7);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 8);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 9);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 10);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 11);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(16, 5);
+		textcolor(CYAN);
+		cprintf("Quieres continuar usando el mismo usuario");
+
+		gotoxy(16, 7);
+		textcolor(CYAN);
+		cprintf("1. si");
+
+		gotoxy(16, 9);
+		textcolor(CYAN);
+		cprintf("2. no");
+
+		gotoxy(16, 11);
+		textcolor(CYAN);
+		cprintf("> ");
+
 		fgets(preguntar,sizeof(preguntar),stdin);
 		len = strlen(preguntar);
 		if (len > 0 && preguntar[len - 1] == '\n')
@@ -1028,6 +2150,8 @@ int main()
     char *user, *password,preguntar[10];
 	int iterable;
 	size_t len;
+	/*logo();
+	inicio();*/
     borrar();
     sueldos(&sueldo_daniel, &sueldo_ernesto);
     /*printf("1 = %lf, 2 = %lf\n", sueldo_daniel, sueldo_ernesto);*/
@@ -1049,26 +2173,183 @@ int main()
         }
         else
         {
-            borrar();
-            printf("contrasena incorrecta");
-            getch();
-            exit(0);
+			borrar();
+			for (iterable = 0; iterable <2080; iterable++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 13);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 14);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 15);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 16);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			/*printf("por seguridad cerraremos este programa");*/
+			gotoxy(28,14);
+			textcolor(RED);
+			cprintf("por seguridad cerraremos");
+			gotoxy(34,15);
+			textcolor(RED);
+			cprintf("este programa");
+			getch();
+			exit(0);
+            
         }      
     }
     else
     {
-        borrar();
-        printf("por seguridad cerraremos este programa");
-        getch();
+		borrar();
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+
+		for (iterable = 0; iterable <30; iterable++)
+    	{
+        
+			gotoxy(25+iterable, 13);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+      
+    	}
+		for (iterable = 0; iterable <30; iterable++)
+    	{
+        
+			gotoxy(25+iterable, 14);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+      
+    	}
+		for (iterable = 0; iterable <30; iterable++)
+    	{
+        
+			gotoxy(25+iterable, 15);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+      
+    	}
+		for (iterable = 0; iterable <30; iterable++)
+    	{
+        
+			gotoxy(25+iterable, 16);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+      
+    	}
+        /*printf("por seguridad cerraremos este programa");*/
+        gotoxy(28,14);
+		textcolor(RED);
+		cprintf("por seguridad cerraremos");
+		gotoxy(34,15);
+		textcolor(RED);
+		cprintf("este programa");
+		getch();
         exit(0);
     }
 	while (1)
 	{
 		borrar();
-		printf("Quieres salir\n");
-		printf("1. si\n");
-		printf("2. no\n");
-		printf("> ");
+		for (iterable = 0; iterable <2080; iterable++)
+		{
+			textcolor(DARKGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 4);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 5);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 6);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 7);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 8);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 9);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 10);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		for (iterable = 0; iterable <55; iterable++)
+		{
+		
+			gotoxy(15+iterable, 11);
+			textcolor(LIGHTGRAY);
+			cprintf("%c", 219);
+		}
+		gotoxy(16, 5);
+		textcolor(CYAN);
+		cprintf("Quieres salir");
+		gotoxy(16, 7);
+		textcolor(CYAN);
+		cprintf("1. si");
+		gotoxy(16, 9);
+		textcolor(CYAN);
+		cprintf("2. no");
+		gotoxy(16, 11);
+		textcolor(CYAN);
+		cprintf("> ");
 		fgets(preguntar,sizeof(preguntar),stdin);
 		len = strlen(preguntar);
 		if (len > 0 && preguntar[len - 1] == '\n')
@@ -1081,7 +2362,52 @@ int main()
 		}
 		if (strcmp(preguntar,"SI") == 0)
 		{
-			printf("\nHas salido del programa");
+			borrar();
+			for (iterable = 0; iterable <2080; iterable++)
+			{
+				textcolor(DARKGRAY);
+				cprintf("%c", 219);
+			}
+
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 13);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 14);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 15);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			for (iterable = 0; iterable <30; iterable++)
+			{
+			
+				gotoxy(25+iterable, 16);
+				textcolor(LIGHTGRAY);
+				cprintf("%c", 219);
+		
+			}
+			/*printf("por seguridad cerraremos este programa");*/
+			gotoxy(28,14);
+			textcolor(CYAN);
+			cprintf("Has salido del programa");
+			gotoxy(36,15);
+			textcolor(CYAN);
+			cprintf("cajero");
 			getch();
 			exit(0);
 		}
