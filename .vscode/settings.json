@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "dos.h": "c"
+        "dos.h": "c",
+        "stdio.h": "c",
+        "ctype.h": "c",
+        "stdlib.h": "c",
+        "conio.h": "c",
+        "string.h": "c",
+        "cstdlib": "c",
+        "typeinfo": "c",
+        "xd.h": "c",
+        "two.h": "c"
     }
 }

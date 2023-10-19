@@ -1047,10 +1047,10 @@ void retirar_saldo_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *us
 			}
 			else if (retirar_saldo > *sueldo_daniel)
 			{
-				gotoxy(20, 11);
+				gotoxy(9, 11);
 				textcolor(RED);
 				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
-				gotoxy(24, 11);
+				gotoxy(30, 13);
 				textcolor(RED);
 				cprintf("saldo actual :%lf",*sueldo_daniel);
 				getch();
@@ -1073,10 +1073,10 @@ void retirar_saldo_cuenta(double *sueldo_daniel, double *sueldo_ernesto,char *us
 			}
 			else if (retirar_saldo > *sueldo_ernesto)
 			{
-				gotoxy(20, 11);
+				gotoxy(9, 11);
 				textcolor(RED);
 				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
-				gotoxy(24, 11);
+				gotoxy(30, 13);
 				textcolor(RED);
 				cprintf("saldo actual :%lf",*sueldo_ernesto);
 				getch();
@@ -1152,16 +1152,17 @@ void recarga_saldo(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 			}
 			else if (retirar_saldo > *sueldo_daniel)
 			{
-				gotoxy(20, 11);
+				gotoxy(9, 11);
 				textcolor(RED);
 				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
-				gotoxy(24, 11);
+				gotoxy(30, 13);
 				textcolor(RED);
 				cprintf("saldo actual :%lf",*sueldo_daniel);
 				getch();
 			}
 			else if (retirar_saldo >= 1 && retirar_saldo <= 10000)
 			{
+
 				*sueldo_daniel = *sueldo_daniel - retirar_saldo;
 				actualizar_sueldos(sueldo_daniel,sueldo_ernesto,user);
 				break;
@@ -1227,10 +1228,10 @@ void recarga_saldo(double *sueldo_daniel, double *sueldo_ernesto,char *user)
 			}
 			else if (retirar_saldo > *sueldo_ernesto) 
 			{
-				gotoxy(20, 11);
+				gotoxy(9, 11);
 				textcolor(RED);
 				cprintf("No puede cuenta con el saldo suficiente para realizar la transaccion");
-				gotoxy(24, 11);
+				gotoxy(30, 13);
 				textcolor(RED);
 				cprintf("saldo actual :%lf",*sueldo_ernesto);
 				getch();
@@ -2150,8 +2151,8 @@ int main()
     char *user, *password,preguntar[10];
 	int iterable;
 	size_t len;
-	/*logo();
-	inicio();*/
+	logo();
+	/*inicio();*/
     borrar();
     sueldos(&sueldo_daniel, &sueldo_ernesto);
     /*printf("1 = %lf, 2 = %lf\n", sueldo_daniel, sueldo_ernesto);*/
